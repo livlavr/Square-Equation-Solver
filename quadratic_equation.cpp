@@ -79,7 +79,7 @@ void user_input(double* a, double* b, double* c)
 
     printf("Enter the number of the square equation: a b c\n");
     while ((input_count = scanf("%lg%lg%lg", a, b, c)) != NUMBER_OF_COEFFICIENT
-    && coefficient_check_finite(*a, *b, *c)) // TODO while align
+            && coefficient_check_finite(*a, *b, *c))
     {
         for (int i = 0; i < NUMBER_OF_COEFFICIENT - input_count; ++i)
         {
@@ -229,7 +229,7 @@ NUMBER_OF_SOLUTIONS solve_square(double a, double b, double c, ROOTS * answer)
     }
 }
 
-bool compare_results(TEST_PARAMETERS* test, ROOTS answer) // TODO const
+bool compare_results(TEST_PARAMETERS* const test, ROOTS answer) // TODO const????
 {
     if (test->count_solutions_exp == answer.count_solutions)
     {
@@ -284,7 +284,7 @@ bool test_or_user_input()
     }
 }
 
-bool run_test(TEST_PARAMETERS* test) // TODO const
+bool run_test(TEST_PARAMETERS* const test)
 {
     ROOTS answer = {INVALID, NAN, NAN};
 
