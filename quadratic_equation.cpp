@@ -42,6 +42,7 @@ struct answer
 
 struct testing_system
 {
+    int number_of_test;
     NUMBER_OF_SOLUTIONS count_solutions_exp;
     struct coefficient
     {
@@ -54,16 +55,16 @@ struct testing_system
 };
 
 TYPES_OF_EQUATION find_type_of_square(double a, double b, double c);
-NUMBER_OF_SOLUTIONS solve_equation(double a, double b, double c, answer * ans);
-NUMBER_OF_SOLUTIONS solve_square(double a, double b, double c, answer * ans);
-NUMBER_OF_SOLUTIONS solve_linear(double b, double c, answer * ans);
+NUMBER_OF_SOLUTIONS solve_equation(double a, double b, double c, answer* ans);
+NUMBER_OF_SOLUTIONS solve_square(double a, double b, double c, answer* ans);
+NUMBER_OF_SOLUTIONS solve_linear(double b, double c, answer* ans);
 void user_input(double* a, double* b, double* c);
 void result_output(NUMBER_OF_SOLUTIONS count_solutions, answer ans);
 int coefficient_check_finite(double a, double b, double c);
 DOUBLE_COMPARE double_comparing(double a, double b);
 //int run_testing_system(void);
-TEST_STATUS run_test(int number_of_test, double a, double b, double c, NUMBER_OF_SOLUTIONS count_solutions_exp, double x1_exp, double x2_exp);
-TEST_STATUS compare_results(NUMBER_OF_SOLUTIONS count_solutions_exp, double x1_exp, double x2_exp,
+TEST_STATUS run_test(testing_system test);
+TEST_STATUS compare_results(testing_system count_solutions_exp, testing_system x1_exp, testing_system x2_exp,
                     NUMBER_OF_SOLUTIONS count_solutions, double x1, double x2);
 
 int main()
@@ -74,7 +75,14 @@ int main()
     // user_input(&a, &b, &c);
     // NUMBER_OF_SOLUTIONS count_solutions = solve_equation(a, b, c, &ans);
     // result_output(count_solutions, ans);
-    run_test(1, 0, 0, 0, INFINITY_OF_SOLUTIONS, NAN, NAN);
+    testing_system test1 = {.number_of_test      = 1,
+                            .coefficient.a       = 0,
+                            .coefficient.b       = 0,
+                            .coefficient.c       = 0,
+                            .count_solutions_exp = INFINITY_OF_SOLUTIONS,
+                            .roots.x1_exp        = NAN,
+                            .roots.x1_exp        = NAN};
+    run_test(test1);
 
 }
 
@@ -212,7 +220,7 @@ NUMBER_OF_SOLUTIONS solve_square(double a, double b, double c, answer * ans)
     }
 }
 
-TEST_STATUS compare_results(NUMBER_OF_SOLUTIONS count_solutions_exp, double x1_exp, double x2_exp,
+TEST_STATUS compare_results(testing_system count_solutions_exp, testing_system x1_exp, testing_system x2_exp,
                     NUMBER_OF_SOLUTIONS count_solutions, double x1, double x2)
 {
     if ((count_solutions_exp == count_solutions) && (x1_exp == x1) && (x2_exp == x2))
@@ -225,17 +233,18 @@ TEST_STATUS compare_results(NUMBER_OF_SOLUTIONS count_solutions_exp, double x1_e
     }
 }
 
-TEST_STATUS run_test(int number_of_test, double a, double b, double c,
-            NUMBER_OF_SOLUTIONS count_solutions_exp, double x1_exp, double x2_exp)
+TEST_STATUS run_test(testing_system test)
 {
     TEST_STATUS status = CORRECT;
     double x1 = NAN, x2 = NAN;
     NUMBER_OF_SOLUTIONS count_colutions = INVALID;
 
-    count_colutions = solve_equation(a, b, c, &x1, &x2);
-    if (compare_results(count_solutions_exp, x1_exp, x2_exp, count_colutions, x1, x2))
+    count_colutions = solve_equation(testing_system.coefficient.a, testing_system.coefficient.b,
+    testing_system.coefficient.c, &x1, &x2);
+    if (compare_results(testing_system.count_solutions_exp, testing_system.roots.x1_exp,
+    testing_system.roots.x2_exp, count_colutions, x1, x2))
     {
-        printf("TEST №%d STATUS CORRECT\n", number_of_test);
+        printf("TEST №%d STATUS CORRECT\n", testing_system.number_of_test);
 
         return CORRECT;
     }
@@ -243,7 +252,8 @@ TEST_STATUS run_test(int number_of_test, double a, double b, double c,
     {
         printf("TEST STATUS FLASE\n");
         printf("RESULT: count_solutions = %d\tx1 = %lg\tx2 = %lg\n", count_colutions, x1, x2);
-        printf("EXPECT: count_solutions_exp = %d\tx1_exp = %lg\tx2_exp = %lg\t", count_solutions_exp, x1_exp, x2_exp);
+        printf("EXPECT: count_solutions_exp = %d\tx1_exp = %lg\tx2_exp = %lg\t", testing_system.count_solutions_exp,
+        testing_system.roots.x1_exp, testing_system.roots.x2_exp);
 
         return FALSE;
     }
