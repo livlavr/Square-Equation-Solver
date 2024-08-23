@@ -5,6 +5,7 @@
 #include "double_compare.h"
 #include "unit_test.h"
 #include "solve_equation.h"
+#include "color_print.h"
 
 const int NUMBER_OF_TESTS = 8;
 
@@ -48,13 +49,15 @@ bool run_test(const TEST_PARAMETERS* test)
     answer.count_solutions = solve_equation(test->a, test->b, test->c, &answer);
     if (compare_results(test, answer))
     {
-        printf("TEST №%d STATUS CORRECT\n\n", test->number_of_test);
+        printf("TEST №%d STATUS ", test->number_of_test);
+        color_print("CORRECT\n\n", GREEN_TEXT, BOLD);
 
         return true;
     }
     else
     {
-        printf("TEST №%d STATUS false\n", test->number_of_test);
+        printf("TEST №%d STATUS ", test->number_of_test);
+        color_print("WRONG\a\n", RED_TEXT, BOLD);
         printf("\tRESULT: count_solutions     = %d\tx1     = %.4lg\tx2     = %.4lg\n",
                 answer.count_solutions, answer.x1, answer.x2);
         printf("\tEXPECT: count_solutions_exp = %d\tx1_exp = %lg\tx2_exp = %lg\n\n",
