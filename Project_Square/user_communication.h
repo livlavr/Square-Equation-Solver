@@ -1,5 +1,5 @@
-#ifndef USER_COMMUNICATION_H_ // TODO user_communication.h
-#define USER_COMMUNICATION_H_ // TODO use in every header
+#ifndef USER_COMMUNICATION_H_
+#define USER_COMMUNICATION_H_
 
 const int NUMBER_OF_COEFFICIENT = 3;
 

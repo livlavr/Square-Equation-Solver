@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <math.h>
 
-#include "parameters.h"
+#include "solutions_status.h"
 #include "double_compare.h"
 #include "unit_test.h"
 #include "solve_equation.h"

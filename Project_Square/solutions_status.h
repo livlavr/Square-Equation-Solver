@@ -1,3 +1,6 @@
+#ifndef SOLUTIONS_STATUS_H
+#define SOLUTIONS_STATUS_H
+
 enum NUMBER_OF_SOLUTIONS
 {
     ZERO_SOLUTIONS        =  0,
@@ -13,3 +16,5 @@ struct ROOTS
     double x1;
     double x2;
 };
+
+#endif

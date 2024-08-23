@@ -2,7 +2,7 @@
 #include <math.h>
 #include <assert.h>
 
-#include "parameters.h"
+#include "solutions_status.h"
 #include "double_compare.h"
 #include "solve_equation.h"
 
