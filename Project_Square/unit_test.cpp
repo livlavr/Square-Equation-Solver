@@ -130,7 +130,7 @@ void run_testing_system(){
 
        {.number_of_test      =  7,
         .count_solutions_exp =  TWO_SOLUTIONS,
-        .a                   =  0,
+        .a                   =  1,
         .b                   =  5,
         .c                   = -4,
         .x1_exp              =  0.7016,
