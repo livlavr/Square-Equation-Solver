@@ -24,6 +24,9 @@ void style_selector(MY_COLOR color, FORMAT font)
         case RED_TEXT:
             printf("\033[31m");
             break;
+        case YELLOW_TEXT:
+            printf("\033[33m");
+            break;
         case DEFAULT:
             printf("\033[0m");
             break;
@@ -33,8 +36,7 @@ void style_selector(MY_COLOR color, FORMAT font)
     }
 }
 
-// TODO remove _pro suffix
-void color_print_pro(MY_COLOR color, FORMAT font, const char * format, ...)
+void color_print(MY_COLOR color, FORMAT font, const char * format, ...)
 {
     va_list arguments;
     style_selector(color, font);
@@ -42,47 +44,4 @@ void color_print_pro(MY_COLOR color, FORMAT font, const char * format, ...)
     vprintf(format, arguments);
     va_end(arguments);
     style_selector(DEFAULT, REGULAR);
-}
-
-// TODO remove
-void color_print(const char * format, MY_COLOR color, FORMAT font)
-{
-    switch(font)
-    {
-        case BOLD:
-            switch(color)
-            {
-                case GREEN_TEXT:
-                    printf("\033[1;32m%s\033[0m", format);
-                    break;
-                case RED_TEXT:
-                    printf("\033[1;31m%s\033[0m", format);
-                    break;
-                case DEFAULT:
-                    break;
-                default:
-                    printf("color_print color ERROR");
-                    break;
-            }
-            break;
-        case REGULAR:
-            switch(color)
-            {
-                case GREEN_TEXT:
-                    printf("\033[0;32m%s\033[0m", format);
-                    break;
-                case RED_TEXT:
-                    printf("\033[0;31m%s\033[0m", format);
-                    break;
-                case DEFAULT:
-                    break;
-                default:
-                    printf("color_print color ERROR");
-                    break;
-            }
-            break;
-        default:
-            printf("color_print format ERROR");
-            break;
-    }
 }

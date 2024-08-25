@@ -5,7 +5,8 @@ enum MY_COLOR
 {
     DEFAULT = 0,
     GREEN_TEXT = 32,
-    RED_TEXT = 31
+    RED_TEXT = 31,
+    YELLOW_TEXT = 33
 };
 
 enum FORMAT
@@ -14,8 +15,7 @@ enum FORMAT
     REGULAR = 0
 };
 
-void color_print(const char * format, MY_COLOR color, FORMAT font);
-void color_print_pro(MY_COLOR color, FORMAT font, const char * format, ...);
+void color_print(MY_COLOR color, FORMAT font, const char * format, ...);
 void style_selector(MY_COLOR color, FORMAT font);
 
 #endif

@@ -50,18 +50,20 @@ bool run_test(const TEST_PARAMETERS* test)
     if (compare_results(test, answer))
     {
         printf("TEST №%d STATUS ", test->number_of_test);
-        color_print_pro(GREEN_TEXT, BOLD, "%s", "CORRECT\n\n");
+        color_print(GREEN_TEXT, BOLD, "%s", "CORRECT\n\n");
 
         return true;
     }
     else
     {
         printf("TEST №%d STATUS ", test->number_of_test);
-        color_print_pro(RED_TEXT, BOLD, "%s", "WRONG\a\n");
-        printf("\tRESULT: count_solutions     = %d\tx1     = %.4lg\tx2     = %.4lg\n",
-                answer.count_solutions, answer.x1, answer.x2);
-        printf("\tEXPECT: count_solutions_exp = %d\tx1_exp = %lg\tx2_exp = %lg\n\n",
+        color_print(RED_TEXT, BOLD, "%s", "WRONG\a\n");
+        color_print(GREEN_TEXT, BOLD, "%s", "\tEXPECT");
+        printf(": count_solutions_exp = %d\tx1_exp = %lg\tx2_exp = %lg\n",
         test->count_solutions_exp, test->x1_exp, test->x2_exp);
+        color_print(YELLOW_TEXT, BOLD, "%s", "\tRESULT");
+        printf(": count_solutions     = %d\tx1     = %.4lg\tx2     = %.4lg\n",
+                answer.count_solutions, answer.x1, answer.x2);
 
         return false;
     }
@@ -128,7 +130,7 @@ void run_testing_system(){
 
        {.number_of_test      =  7,
         .count_solutions_exp =  TWO_SOLUTIONS,
-        .a                   =  1,
+        .a                   =  0,
         .b                   =  5,
         .c                   = -4,
         .x1_exp              =  0.7016,
