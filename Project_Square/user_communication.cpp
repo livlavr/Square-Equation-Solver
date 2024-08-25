@@ -8,18 +8,19 @@
 
 void user_input(double* a, double* b, double* c)
 {
-    int input_count = 0;
+    int input_count = 0, character = 0;
 
     printf("Enter the number of the square equation: a b c\n");
-    while ((input_count = scanf("%lg%lg%lg", a, b, c)) != NUMBER_OF_COEFFICIENT
-            && coefficient_check_finite(*a, *b, *c))
+    while (((input_count = scanf("%lg%lg%lg", a, b, c)) != NUMBER_OF_COEFFICIENT) ||
+            !coefficient_check_finite(*a, *b, *c) || !(((character = getchar()) == '\n')
+            || character == ' ' || character == '\t'))
     {
-        for (int i = 0; i < NUMBER_OF_COEFFICIENT - input_count; ++i)
-        {
-            scanf("%*s");
-        }
+        while ((character = getchar()) != '\n'){}
         printf("Oops, it looks like you entered the wrong values\n");
         printf("Try again\n");
+        *a = NAN;
+        *b = NAN;
+        *c = NAN;
     }
 }
 
@@ -64,3 +65,8 @@ bool test_or_user_input()
         return false;
     }
 }
+//
+// void valid_input(double* a, double* b, double* c)
+// {
+//
+// }

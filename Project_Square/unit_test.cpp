@@ -50,14 +50,14 @@ bool run_test(const TEST_PARAMETERS* test)
     if (compare_results(test, answer))
     {
         printf("TEST №%d STATUS ", test->number_of_test);
-        color_print("CORRECT\n\n", GREEN_TEXT, BOLD);
+        color_print_pro(GREEN_TEXT, BOLD, "%s", "CORRECT\n\n");
 
         return true;
     }
     else
     {
         printf("TEST №%d STATUS ", test->number_of_test);
-        color_print("WRONG\a\n", RED_TEXT, BOLD);
+        color_print_pro(RED_TEXT, BOLD, "%s", "WRONG\a\n");
         printf("\tRESULT: count_solutions     = %d\tx1     = %.4lg\tx2     = %.4lg\n",
                 answer.count_solutions, answer.x1, answer.x2);
         printf("\tEXPECT: count_solutions_exp = %d\tx1_exp = %lg\tx2_exp = %lg\n\n",
