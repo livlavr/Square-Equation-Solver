@@ -36,12 +36,12 @@ void style_selector(MY_COLOR color, FORMAT font)
     }
 }
 
-void color_print(MY_COLOR color, FORMAT font, const char * format, ...)
+void color_print(MY_COLOR color, FORMAT font, const char * format_line, ...)
 {
     va_list arguments;
     style_selector(color, font);
-    va_start(arguments, format);
-    vprintf(format, arguments);
+    va_start(arguments, format_line);
+    vprintf(format_line, arguments);
     va_end(arguments);
     style_selector(DEFAULT, REGULAR);
 }

@@ -3,7 +3,7 @@
 
 #include "double_compare.h"
 
-int coefficient_check_finite(double a, double b, double c)
+bool coefficient_check_finite(double a, double b, double c)
 {
     return (isfinite(a) && isfinite(b) && isfinite(c));
 }

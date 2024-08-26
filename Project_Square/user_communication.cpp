@@ -65,8 +65,3 @@ bool test_or_user_input()
         return false;
     }
 }
-//
-// void valid_input(double* a, double* b, double* c)
-// {
-//
-// }
