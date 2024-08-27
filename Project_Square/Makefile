@@ -1,4 +1,4 @@
-CXX          = gcc-14
+CXX          = gcc-14 #TODO troubles with compiling (changed .h)
 
 SRC          = color_print.cpp double_compare.cpp quadratic_equation.cpp\
 		  	    solve_equation.cpp unit_test.cpp user_communication.cpp
@@ -9,7 +9,7 @@ OBJECT       = $(patsubst %.cpp, %.o, $(SRC))
 BUILD_OBJ    = $(addprefix $(BUILD_DIR), $(OBJECT))
 
 GREEN_TEXT   = \033[1;32m
-YELLOW_TEXT  = \033[1;32m
+YELLOW_TEXT  = \033[1;33m
 DEFAULT_TEXT = \033[0m
 
 DED_FLAGS    = -D _DEBUG -ggdb2 -std=c++17 -O0 -Wall -Wextra -Weffc++\
@@ -46,6 +46,9 @@ $(OBJECT) : %.o : %.cpp
 meow : $(SRC)
 	$(CXX) $^ -o $(addprefix $(BUILD_DIR), $(TARGET)) $(DED_FLAGS)
 	@printf "$(YELLOW_TEXT)MEOW$(DEFAULT_TEXT)\n"
+
+doxy :
+	doxygen
 
 clean :
 	@rm -f -r $(addprefix $(BUILD_DIR), *.o $(TARGET) *.dSYM)

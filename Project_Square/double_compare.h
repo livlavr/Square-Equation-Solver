@@ -1,7 +1,7 @@
 #ifndef DOUBLE_COMPARE_H
 #define DOUBLE_COMPARE_H
 
-const double EPS = 0.001; //**< Accuracy */
+const double EPS = 1e-02; //**< Accuracy */
 
 /// @brief An enum type
 /// DOUBLE COMPARING RESULT

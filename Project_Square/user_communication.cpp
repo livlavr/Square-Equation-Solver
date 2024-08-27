@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <math.h>
 #include <assert.h>
+#include <string.h>
 
 #include "solutions_status.h"
 #include "double_compare.h"
@@ -52,16 +53,24 @@ void result_output(NUMBER_OF_SOLUTIONS count_solutions, ROOTS answer)
 
 bool test_or_user_input()
 {
-    printf("Run the test - Enter\n");
-    printf("Run the user input something else\n");
-    if ((getchar()) == '\n')
+    printf("Run the test - write test\n");
+    printf("Run the user input - write man\n");
+    char st[MAX_LEN_OF_INPUT];
+    while(true)
     {
-        return true;
-    }
-    else
-    {
+        scanf("%s", st);
         while(getchar() != '\n');
-
-        return false;
+        if (strcmp(st,"test") == 0)
+        {
+            return true;
+        }
+        else if (strcmp(st,"man") == 0)
+        {
+            return false;
+        }
+        else
+        {
+            printf("Can`t find %s mode. Try to write test or man\n", st);
+        }
     }
 }

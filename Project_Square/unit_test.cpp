@@ -27,7 +27,7 @@ bool compare_results(const TEST_PARAMETERS* test, ROOTS answer)
                 break;
             case TWO_SOLUTIONS:
                 return ((double_comparing(test->x1_exp, answer.x1) == EQUAL) &&
-                    (double_comparing(test->x2_exp, answer.x2) == EQUAL));
+                        (double_comparing(test->x2_exp, answer.x2) == EQUAL));
                 break;
             case INVALID:
                 return false;
@@ -50,17 +50,17 @@ bool run_test(const TEST_PARAMETERS* test)
     if (compare_results(test, answer))
     {
         printf("TEST №%d STATUS ", test->number_of_test);
-        color_print(GREEN_TEXT, BOLD, "%s", "CORRECT\n\n");
+        color_print(GREEN_TEXT , BOLD, "%s", "CORRECT\n\n");
 
         return true;
     }
     else
     {
         printf("TEST №%d STATUS ", test->number_of_test);
-        color_print(RED_TEXT, BOLD, "%s", "WRONG\a\n");
-        color_print(GREEN_TEXT, BOLD, "%s", "\tEXPECT");
+        color_print(RED_TEXT   , BOLD, "%s", "WRONG\a\n");
+        color_print(GREEN_TEXT , BOLD, "%s", "\tEXPECT");
         printf(": count_solutions_exp = %d\tx1_exp = %lg\tx2_exp = %lg\n",
-        test->count_solutions_exp, test->x1_exp, test->x2_exp);
+                test->count_solutions_exp, test->x1_exp, test->x2_exp);
         color_print(YELLOW_TEXT, BOLD, "%s", "\tRESULT");
         printf(": count_solutions     = %d\tx1     = %.4lg\tx2     = %.4lg\n",
                 answer.count_solutions, answer.x1, answer.x2);
