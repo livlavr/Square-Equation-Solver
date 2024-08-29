@@ -142,7 +142,7 @@ void run_testing_system(){
         .x2_exp              = -5.702}
     };
 
-    for (int i = 0; i < NUMBER_OF_TESTS; ++i)
+    for(int i = 0; i < NUMBER_OF_TESTS; ++i)
     {
         printf("TEST №%d STATUS running...\n", i);
         run_test(&array_of_tests[i]);

@@ -21,4 +21,12 @@ void user_input(double* a, double* b, double* c);
  */
 void result_output(int count_solutions, ROOTS answer);
 
+/**
+ * @brief Easter egg
+ *
+ * @param answer
+ * @return int
+ */
+int check(ROOTS answer);
+
 #endif

@@ -1,4 +1,4 @@
-CXX          = gcc-14 #TODO troubles with compiling (changed .h)
+CXX          = gcc-14
 
 SRC          = color_print.cpp double_compare.cpp quadratic_equation.cpp\
 		  	    solve_equation.cpp unit_test.cpp user_communication.cpp\

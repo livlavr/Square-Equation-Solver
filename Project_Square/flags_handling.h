@@ -4,7 +4,7 @@
 /// @brief An enum type
 enum
 {
-    TEST = 1,
+    TEST   = 1,
     MANUAL = 2
 };
 

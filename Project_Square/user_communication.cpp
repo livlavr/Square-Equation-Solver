@@ -49,3 +49,26 @@ void result_output(int count_solutions, ROOTS answer)
             printf("ERROR: count_solutions = %d\n", count_solutions);
     }
 }
+
+int check(ROOTS answer)
+{
+    if (double_comparing(answer.x1, 1.5) == EQUAL ||
+        double_comparing(answer.x2, 1.5) == EQUAL)
+    {
+        printf("╭━━━╮ ╭━━━╮       ╭━━━╮\n");
+        printf("┃  ╭╯ ┃┊  ┗━━━━━━━┛┊  ┃\n");
+        printf("┃  ╰┳┳┫  ┏━▅╮   ╭━▅┓  ┃\n");
+        printf("┃┫┫┫┫┫┫  ┃┊▉┃   ┃┊▉┃  ┃\n");
+        printf("┃┫┫┫┫┫╋  ╰━━┛ ▅ ┗━━╯  ╋\n");
+        printf("┃┫┫┫┫┫╋ ┊ ┊ ┊┣┻┫┊ ┊ ┊ ╋\n");
+        printf("┃     ╰┈┈┈┈┈┈┈┈┈┈┈┈┈┳━╯\n");
+        printf("┃ ┣┳━┳━━━━┫ ┣━━━━┳ ╭╯\n");
+
+        return 0;
+
+    }
+    else
+    {
+        return 0;
+    }
+}

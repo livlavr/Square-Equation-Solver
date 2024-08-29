@@ -26,22 +26,10 @@ int main(int argc, char *argv[])
             int count_solutions = 0;
             count_solutions = solve_equation(a, b, c, &answer);
             result_output(count_solutions, answer);
+            check(answer);
             break;
         }
         default:
             return 0;
-    }
-
-
-
-    if (!test_or_user_input())
-    {
-        user_input(&a, &b, &c);
-        int count_solutions = solve_equation(a, b, c, &answer);
-        result_output(count_solutions, answer);
-    }
-    else
-    {
-        run_testing_system();
     }
 }
