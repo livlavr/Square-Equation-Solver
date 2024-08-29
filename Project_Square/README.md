@@ -1,7 +1,7 @@
 
 <div align="center">
 
-<img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.klipartz.com%2Fru%2Fsticker-png-lebje&psig=AOvVaw3A8aa4minfnrl5a-ZHMK_W&ust=1724986850930000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCNCe5veamYgDFQAAAAAdAAAAABAv" alt="logo" width="200" height="auto" />
+<img src="./mipt.jpg" alt="logo" width="200" height="auto" />
 
 <h1>SQUARE EQUATION</h1>
 
@@ -26,7 +26,6 @@
 
 
 - [About the Project](#star2-about-the-project)
-    * [Screenshots](#camera-screenshots)
     * [Features](#dart-features)
 
 - [About the Project](#star2-about-the-project)
@@ -37,29 +36,11 @@
 
 * [Authors](#handshake-contact)
 
-
-
-
-
 <!-- About the Project -->
 
 ## ✨ About the Project
 
 This Program was created at DED's Summer School '24 to explore the possibilities of the great <b>C<b> Language!
-
-<!-- Screenshots -->
-
-### 📷 Screenshots
-
-
-
-<div align="center">
-
-<img src="https://imgur.com/9v4WRvk" alt="screenshot" />
-
-</div>
-
-
 
 <!-- Features -->
 
