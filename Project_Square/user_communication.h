@@ -24,9 +24,9 @@ void result_output(int count_solutions, ROOTS answer);
 /**
  * @brief Easter egg
  *
- * @param answer
+ * @param x
  * @return int
  */
-int check(ROOTS answer);
+int check(double x);
 
 #endif

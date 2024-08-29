@@ -1,8 +1,8 @@
 #ifndef FLAGS_HANDLING_H
 #define FLAGS_HANDLING_H
 
-/// @brief An enum type
-enum
+/// @brief An enum type for CLI flags
+enum FLAG_MODE
 {
     TEST   = 1,
     MANUAL = 2
@@ -15,6 +15,6 @@ enum
  * @param argv List of input parameters
  * @return int
  */
-int flags_handling(int argc, char* argv[]);
+FLAG_MODE get_mode_flag(int argc, char* argv[]);
 
 #endif

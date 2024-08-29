@@ -9,9 +9,9 @@ bool coefficient_check_finite(double a, double b, double c)
     return (isfinite(a) && isfinite(b) && isfinite(c));
 }
 
-int double_comparing(double a, double b){
-    check_expression(!isnan(a), DOUBLE_IS_NAN);
-    check_expression(!isnan(b), DOUBLE_IS_NAN);
+DOUBLE_COMPARE double_comparing(double a, double b){
+    check_expression(!isnan(a), WRONG_COMPARE);
+    check_expression(!isnan(b), WRONG_COMPARE);
 
     if (fabs(a - b) <= EPS)
     {

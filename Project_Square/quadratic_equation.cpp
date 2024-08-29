@@ -3,17 +3,18 @@
 
 #include "solutions_status.h"
 #include "double_compare.h"
-#include "unit_test.h"
-#include "solve_equation.h"
 #include "user_communication.h"
+#include "solve_equation.h"
+#include "unit_test.h"
 #include "check_expression.h"
-#include "flags_handling.h"
+#include "get_mode_flag.h"
+#include "manual_mode.h"
 
 int main(int argc, char *argv[])
 {
     double a = NAN, b = NAN, c = NAN;
     ROOTS answer = {INVALID, NAN, NAN};
-    switch(flags_handling(argc, argv))
+    switch(get_mode_flag(argc, argv))
     {
         case TEST:
         {
@@ -22,14 +23,10 @@ int main(int argc, char *argv[])
         }
         case MANUAL:
         {
-            user_input(&a, &b, &c);
-            int count_solutions = 0;
-            count_solutions = solve_equation(a, b, c, &answer);
-            result_output(count_solutions, answer);
-            check(answer);
+            manual_mode(&a, &b, &c, &answer);
             break;
         }
         default:
-            return 0;
+            return 1;
     }
 }

@@ -1,14 +1,14 @@
 #include <stdio.h>
 #include <string.h>
-#include "flags_handling.h"
+#include "get_mode_flag.h"
 
-int flags_handling(int argc, char* argv[])
+FLAG_MODE get_mode_flag(int argc, char* argv[])
 {
     if (argc != 1)
     {
         for(int i = 1; i < argc; i++)
         {
-            if (strcmp(argv[i], "-test") == 0)
+            if (strcmp(argv[i], "--test") == 0)
             {
                 return TEST;
             }
@@ -18,9 +18,5 @@ int flags_handling(int argc, char* argv[])
             }
         }
     }
-    else
-    {
-        return MANUAL;
-    }
-    return 0;
+    return MANUAL;
 }

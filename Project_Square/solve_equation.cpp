@@ -6,11 +6,11 @@
 #include "solve_equation.h"
 #include "check_expression.h"
 
-int solve_equation(double a, double b, double c, ROOTS* answer)
+NUMBER_OF_SOLUTIONS solve_equation(double a, double b, double c, ROOTS* answer)
 {
-    check_expression(&answer     != NULL, POINTER_IS_NULL);
-    check_expression(&answer->x1 != NULL, POINTER_IS_NULL);
-    check_expression(&answer->x2 != NULL, POINTER_IS_NULL);
+    check_expression(&answer     != NULL, INVALID);
+    check_expression(&answer->x1 != NULL, INVALID);
+    check_expression(&answer->x2 != NULL, INVALID);
 
     switch(find_type_of_square(a))
     {
@@ -18,16 +18,16 @@ int solve_equation(double a, double b, double c, ROOTS* answer)
             return solve_linear(b, c, answer);
         case SQUARE:
             return solve_square(a, b, c, answer);
+        case ERROR_TYPE_OF_EQUATION:
         default:
             printf("ERROR: solve_equation");
-
             return INVALID;
     }
 }
 
-int find_type_of_square(double a)
+TYPES_OF_EQUATION find_type_of_square(double a)
 {
-    check_expression(!isnan(a), DOUBLE_IS_NAN);
+    check_expression(!isnan(a), ERROR_TYPE_OF_EQUATION);
 
     if (double_comparing(a, 0) == EQUAL)
     {
@@ -39,10 +39,12 @@ int find_type_of_square(double a)
     }
 }
 
-int solve_linear(double b, double c, ROOTS * answer)
+NUMBER_OF_SOLUTIONS solve_linear(double b, double c, ROOTS * answer)
 {
-    check_expression(answer != NULL, POINTER_IS_NULL);
-    check_expression(&answer->x1 != NULL, POINTER_IS_NULL);
+    check_expression(answer != NULL, INVALID);
+    check_expression(&answer->x1 != NULL, INVALID);
+    check_expression(!isnan(b), INVALID);
+    check_expression(!isnan(c), INVALID);
 
     if (double_comparing(b, 0) == EQUAL)
     {
@@ -62,9 +64,12 @@ int solve_linear(double b, double c, ROOTS * answer)
     }
 }
 
-int solve_square(double a, double b, double c, ROOTS * answer)
+NUMBER_OF_SOLUTIONS solve_square(double a, double b, double c, ROOTS * answer)
 {
-    check_expression(answer != NULL, POINTER_IS_NULL);
+    check_expression(answer != NULL, INVALID);
+    check_expression(!isnan(a), INVALID);
+    check_expression(!isnan(b), INVALID);
+    check_expression(!isnan(c), INVALID);
 
     double d = b*b - 4*a*c;
 
@@ -83,8 +88,8 @@ int solve_square(double a, double b, double c, ROOTS * answer)
     else if (double_comparing(d, 0) == MORE)
     {
         double sqrt_d = sqrt(d);
-        answer->x1 = (-b + sqrt_d)/(2*a);
-        answer->x2 = (-b - sqrt_d)/(2*a);
+        answer->x1 = (-b + sqrt_d) / (2*a);
+        answer->x2 = (-b - sqrt_d) / (2*a);
         if (double_comparing(c, 0) == EQUAL)
         {
             if (double_comparing(answer->x1, 0) == EQUAL)

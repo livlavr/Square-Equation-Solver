@@ -1,10 +1,10 @@
 #ifndef CHECK_EXPRESSION_H_
 #define CHECK_EXPRESSION_H_
 
-enum
+enum TYPE_OF_ERROR
 {
     POINTER_IS_NULL = 1,
-    DOUBLE_IS_NAN   = 2
+    DOUBLE_IS_NAN = 2
 };
 
 #ifndef NDEBUG

@@ -50,11 +50,13 @@ void result_output(int count_solutions, ROOTS answer)
     }
 }
 
-int check(ROOTS answer)
+// PrintPoltorashka
+int check(double x)
 {
-    if (double_comparing(answer.x1, 1.5) == EQUAL ||
-        double_comparing(answer.x2, 1.5) == EQUAL)
+    if (double_comparing(x, 1.5) == EQUAL)
     {
+        printf("\n");
+        printf("Congrats! You enter Poltorashka mode!\n");
         printf("╭━━━╮ ╭━━━╮       ╭━━━╮\n");
         printf("┃  ╭╯ ┃┊  ┗━━━━━━━┛┊  ┃\n");
         printf("┃  ╰┳┳┫  ┏━▅╮   ╭━▅┓  ┃\n");
@@ -63,12 +65,8 @@ int check(ROOTS answer)
         printf("┃┫┫┫┫┫╋ ┊ ┊ ┊┣┻┫┊ ┊ ┊ ╋\n");
         printf("┃     ╰┈┈┈┈┈┈┈┈┈┈┈┈┈┳━╯\n");
         printf("┃ ┣┳━┳━━━━┫ ┣━━━━┳ ╭╯\n");
-
-        return 0;
-
+        printf("\n");
     }
-    else
-    {
-        return 0;
-    }
+
+    return 0;
 }

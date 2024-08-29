@@ -2,7 +2,7 @@ CXX          = gcc-14
 
 SRC          = color_print.cpp double_compare.cpp quadratic_equation.cpp\
 		  	    solve_equation.cpp unit_test.cpp user_communication.cpp\
-				flags_handling.cpp
+				get_mode_flag.cpp
 
 BUILD_DIR    = ./build/
 
@@ -45,7 +45,7 @@ $(BUILD_DIR) :
 $(OBJECT) : %.o : %.cpp
 	$(CXX) -c $^ -o $(addprefix $(BUILD_DIR), $@)
 
-meow : $(SRC)
+ded : $(SRC)
 	$(CXX) $^ -o $(addprefix $(BUILD_DIR), $(TARGET)) $(DED_FLAGS)
 	@printf "$(YELLOW_TEXT)MEOW$(DEFAULT_TEXT)\n"
 

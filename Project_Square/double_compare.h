@@ -9,7 +9,8 @@ enum DOUBLE_COMPARE
 {
     LESS  = -1,
     EQUAL = 0,
-    MORE  = 1
+    MORE  = 1,
+    WRONG_COMPARE = 2
 };
 
 /**
@@ -20,7 +21,7 @@ enum DOUBLE_COMPARE
  * @return DOUBLE_COMPARE Result of (a <=> b) with respective meanings:
             LESS, EQUAL, MORE
  */
-int double_comparing(double a, double b);
+DOUBLE_COMPARE double_comparing(double a, double b);
 
 /**
  * @brief Checks if the number has a valid double value
