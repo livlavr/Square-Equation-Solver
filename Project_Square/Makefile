@@ -1,7 +1,9 @@
 CXX          = gcc-14 #TODO troubles with compiling (changed .h)
 
 SRC          = color_print.cpp double_compare.cpp quadratic_equation.cpp\
-		  	    solve_equation.cpp unit_test.cpp user_communication.cpp
+		  	    solve_equation.cpp unit_test.cpp user_communication.cpp\
+				flags_handling.cpp
+
 BUILD_DIR    = ./build/
 
 TARGET       = project_square

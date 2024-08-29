@@ -18,7 +18,7 @@ enum TYPES_OF_EQUATION
  * @param answer probably understandable lol
  * @return NUMBER_OF_SOLUTIONS
  */
-NUMBER_OF_SOLUTIONS solve_equation(double a, double b, double c, ROOTS* answer);
+int solve_equation(double a, double b, double c, ROOTS* answer);
 
 /**
  * @brief
@@ -29,7 +29,7 @@ NUMBER_OF_SOLUTIONS solve_equation(double a, double b, double c, ROOTS* answer);
  * @param answer probably understandable lol
  * @return NUMBER_OF_SOLUTIONS
  */
-NUMBER_OF_SOLUTIONS solve_square(double a, double b, double c, ROOTS* answer);
+int solve_square(double a, double b, double c, ROOTS* answer);
 
 /**
  * @brief
@@ -39,7 +39,7 @@ NUMBER_OF_SOLUTIONS solve_square(double a, double b, double c, ROOTS* answer);
  * @param answer probably understandable lol
  * @return NUMBER_OF_SOLUTIONS
  */
-NUMBER_OF_SOLUTIONS solve_linear(double b, double c, ROOTS* answer);
+int solve_linear(double b, double c, ROOTS* answer);
 
 /**
  * @brief
@@ -47,6 +47,6 @@ NUMBER_OF_SOLUTIONS solve_linear(double b, double c, ROOTS* answer);
  * @param a Coefficient №1 (quadratic)
  * @return TYPES_OF_EQUATION
  */
-TYPES_OF_EQUATION find_type_of_square(double a);
+int find_type_of_square(double a);
 
 #endif

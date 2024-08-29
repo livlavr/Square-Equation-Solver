@@ -28,7 +28,7 @@ enum FORMAT
  * @param [in] format_line format line with % symbols (same as in printf)
  * next parameter is values that would insert in format_line
  */
-void color_print(MY_COLOR color, FORMAT font, const char * format_line, ...);
+int color_print(MY_COLOR color, FORMAT font, const char * format_line, ...);
 
 /**
  * @brief Function change color of console text what sets with

@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <math.h>
-#include <assert.h>
 #include <string.h>
 
 #include "solutions_status.h"
@@ -25,7 +24,7 @@ void user_input(double* a, double* b, double* c)
     }
 }
 
-void result_output(NUMBER_OF_SOLUTIONS count_solutions, ROOTS answer)
+void result_output(int count_solutions, ROOTS answer)
 {
     switch (count_solutions)
     {
@@ -48,29 +47,5 @@ void result_output(NUMBER_OF_SOLUTIONS count_solutions, ROOTS answer)
             break;
         default:
             printf("ERROR: count_solutions = %d\n", count_solutions);
-    }
-}
-
-bool test_or_user_input()
-{
-    printf("Run the test - write test\n");
-    printf("Run the user input - write man\n");
-    char st[MAX_LEN_OF_INPUT];
-    while(true)
-    {
-        scanf("%s", st);
-        while(getchar() != '\n');
-        if (strcmp(st,"test") == 0)
-        {
-            return true;
-        }
-        else if (strcmp(st,"man") == 0)
-        {
-            return false;
-        }
-        else
-        {
-            printf("Can`t find %s mode. Try to write test or man\n", st);
-        }
     }
 }

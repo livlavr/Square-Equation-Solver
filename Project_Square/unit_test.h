@@ -15,7 +15,7 @@ struct TEST_PARAMETERS
 void run_testing_system();
 
 /**
- * @brief Function starts one exect test
+ * @brief Function starts one exact test
  * @param test Variable in TEST_PARAMETERS struct
  */
 bool run_test(const TEST_PARAMETERS* test);

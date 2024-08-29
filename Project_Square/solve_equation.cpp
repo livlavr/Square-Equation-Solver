@@ -1,16 +1,16 @@
 #include <stdio.h>
 #include <math.h>
-#include <assert.h>
 
 #include "solutions_status.h"
 #include "double_compare.h"
 #include "solve_equation.h"
+#include "check_expression.h"
 
-NUMBER_OF_SOLUTIONS solve_equation(double a, double b, double c, ROOTS* answer)
+int solve_equation(double a, double b, double c, ROOTS* answer)
 {
-    assert(answer != NULL);
-    assert(&answer->x1 != NULL);
-    assert(&answer->x2 != NULL);
+    check_expression(&answer     != NULL, POINTER_IS_NULL);
+    check_expression(&answer->x1 != NULL, POINTER_IS_NULL);
+    check_expression(&answer->x2 != NULL, POINTER_IS_NULL);
 
     switch(find_type_of_square(a))
     {
@@ -25,8 +25,10 @@ NUMBER_OF_SOLUTIONS solve_equation(double a, double b, double c, ROOTS* answer)
     }
 }
 
-TYPES_OF_EQUATION find_type_of_square(double a)
+int find_type_of_square(double a)
 {
+    check_expression(!isnan(a), DOUBLE_IS_NAN);
+
     if (double_comparing(a, 0) == EQUAL)
     {
         return LINEAR;
@@ -37,10 +39,10 @@ TYPES_OF_EQUATION find_type_of_square(double a)
     }
 }
 
-NUMBER_OF_SOLUTIONS solve_linear(double b, double c, ROOTS * answer)
+int solve_linear(double b, double c, ROOTS * answer)
 {
-    assert(answer != NULL);
-    assert(&answer->x1 != NULL);
+    check_expression(answer != NULL, POINTER_IS_NULL);
+    check_expression(&answer->x1 != NULL, POINTER_IS_NULL);
 
     if (double_comparing(b, 0) == EQUAL)
     {
@@ -60,9 +62,9 @@ NUMBER_OF_SOLUTIONS solve_linear(double b, double c, ROOTS * answer)
     }
 }
 
-NUMBER_OF_SOLUTIONS solve_square(double a, double b, double c, ROOTS * answer)
+int solve_square(double a, double b, double c, ROOTS * answer)
 {
-    assert(answer != NULL);
+    check_expression(answer != NULL, POINTER_IS_NULL);
 
     double d = b*b - 4*a*c;
 

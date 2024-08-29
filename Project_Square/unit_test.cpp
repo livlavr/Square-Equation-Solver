@@ -6,11 +6,14 @@
 #include "unit_test.h"
 #include "solve_equation.h"
 #include "color_print.h"
+#include "check_expression.h"
 
 const int NUMBER_OF_TESTS = 8;
 
 bool compare_results(const TEST_PARAMETERS* test, ROOTS answer)
 {
+    check_expression(test != NULL, POINTER_IS_NULL);
+
     if (test->count_solutions_exp == answer.count_solutions)
     {
         switch(test->count_solutions_exp)
@@ -44,6 +47,8 @@ bool compare_results(const TEST_PARAMETERS* test, ROOTS answer)
 
 bool run_test(const TEST_PARAMETERS* test)
 {
+    check_expression(test != NULL, POINTER_IS_NULL);
+
     ROOTS answer = {INVALID, NAN, NAN};
 
     answer.count_solutions = solve_equation(test->a, test->b, test->c, &answer);

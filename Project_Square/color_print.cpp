@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdarg.h>
+
 #include "color_print.h"
+#include "check_expression.h"
 
 void style_selector(MY_COLOR color, FORMAT font)
 {
@@ -36,12 +38,15 @@ void style_selector(MY_COLOR color, FORMAT font)
     }
 }
 
-void color_print(MY_COLOR color, FORMAT font, const char * format_line, ...)
+int color_print(MY_COLOR color, FORMAT font, const char * format_line, ...)
 {
+    check_expression(format_line != NULL, POINTER_IS_NULL);
+
     va_list arguments;
     style_selector(color, font);
     va_start(arguments, format_line);
     vprintf(format_line, arguments);
     va_end(arguments);
     style_selector(DEFAULT, REGULAR);
+    return 0;
 }
