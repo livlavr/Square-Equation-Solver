@@ -1,7 +1,7 @@
 
 <div align="center">
 
-<img src="./mipt.jpg" alt="logo" width="200" height="auto" />
+<img src="./Project_Square/mipt.jpg" alt="logo" width="200" height="auto" />
 
 <h1>SQUARE EQUATION</h1>
 
